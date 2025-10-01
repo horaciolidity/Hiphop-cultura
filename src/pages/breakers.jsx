@@ -1,6 +1,6 @@
-// src/pages/Breakers.jsx
+// src/pages/breakers.jsx
 import React from "react";
-import ArtistSection from "./ArtistSection";
+import ArtistSection from "@/components/ArtistSection";
 
 const breakers = [
   {

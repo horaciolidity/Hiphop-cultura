@@ -26,11 +26,11 @@ import ProfilePage from '@/pages/ProfilePage';
 import SettingsPage from '@/pages/SettingsPage';
 import AdminPage from '@/pages/AdminPage';
 
-// 🔥 nuevas secciones
-import MCs from '@/pages/MCs';
-import Grafiteros from '@/pages/Grafiteros';
-import DJs from '@/pages/DJs';
-import Breakers from '@/pages/Breakers';
+// 🔥 nuevas secciones (archivos en minúscula)
+import Mcs from '@/pages/mcs';
+import Grafiteros from '@/pages/grafiteros';
+import Djs from '@/pages/djs';
+import Breakers from '@/pages/breakers';
 
 function App() {
   return (
@@ -83,9 +83,9 @@ function App() {
                 <Route path="/admin" element={<AdminPage />} />
 
                 {/* 🔥 nuevas secciones */}
-                <Route path="/mcs" element={<MCs />} />
+                <Route path="/mcs" element={<Mcs />} />
                 <Route path="/grafiteros" element={<Grafiteros />} />
-                <Route path="/djs" element={<DJs />} />
+                <Route path="/djs" element={<Djs />} />
                 <Route path="/breakers" element={<Breakers />} />
               </Routes>
             </Layout>

@@ -1,6 +1,6 @@
-// src/pages/DJs.jsx
+// src/pages/djs.jsx
 import React from "react";
-import ArtistSection from "./ArtistSection";
+import ArtistSection from "@/components/ArtistSection";
 
 const djs = [
   {
@@ -17,6 +17,6 @@ const djs = [
   },
 ];
 
-export default function DJs() {
+export default function Djs() {
   return <ArtistSection title="DJ´s" artists={djs} />;
 }
