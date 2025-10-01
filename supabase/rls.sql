@@ -1,0 +1,118 @@
+
+-- =================================================================
+-- POLÍTICAS DE SEGURIDAD A NIVEL DE FILA (ROW LEVEL SECURITY - RLS)
+-- =================================================================
+
+-- NOTA IMPORTANTE:
+-- Estas políticas están COMENTADAS por defecto.
+-- Para activarlas, descomente las líneas y ejecute este script en su base de datos Supabase.
+-- Asegúrese de que RLS está habilitado para cada tabla.
+-- Ejemplo de habilitación: ALTER TABLE profiles ENABLE ROW LEVEL SECURITY;
+
+-- -----------------------------------------------------------------
+-- Función auxiliar para obtener el ID de usuario autenticado
+-- -----------------------------------------------------------------
+-- CREATE OR REPLACE FUNCTION auth.uid() RETURNS UUID AS $$
+--   SELECT nullif(current_setting('request.jwt.claims', true)::json->>'sub', '')::uuid;
+-- $$ LANGUAGE SQL STABLE;
+
+-- -----------------------------------------------------------------
+-- Tabla: profiles
+-- -----------------------------------------------------------------
+-- ALTER TABLE profiles ENABLE ROW LEVEL SECURITY;
+--
+-- -- Permite a CUALQUIERA leer perfiles (son públicos).
+-- CREATE POLICY "Profiles are viewable by everyone."
+-- ON profiles FOR SELECT
+-- USING (true);
+--
+-- -- Permite a un usuario actualizar su PROPIO perfil.
+-- CREATE POLICY "Users can update their own profile."
+-- ON profiles FOR UPDATE
+-- USING (auth.uid() = id);
+
+-- -----------------------------------------------------------------
+-- Tabla: tracks, videos, albums, playlists
+-- -----------------------------------------------------------------
+-- ALTER TABLE tracks ENABLE ROW LEVEL SECURITY;
+-- ALTER TABLE videos ENABLE ROW LEVEL SECURITY;
+-- ALTER TABLE albums ENABLE ROW LEVEL SECURITY;
+-- ALTER TABLE playlists ENABLE ROW LEVEL SECURITY;
+--
+-- -- Permite leer contenido público.
+-- CREATE POLICY "Public content is viewable by everyone."
+-- ON tracks FOR SELECT USING (is_public = TRUE);
+-- -- Repetir para videos, albums, playlists...
+--
+-- -- Permite a los usuarios crear contenido a su nombre.
+-- CREATE POLICY "Users can create their own content."
+-- ON tracks FOR INSERT
+-- WITH CHECK (auth.uid() = user_id);
+-- -- Repetir para videos, albums, playlists...
+--
+-- -- Permite a los usuarios actualizar SU PROPIO contenido.
+-- CREATE POLICY "Users can update their own content."
+-- ON tracks FOR UPDATE
+-- USING (auth.uid() = user_id);
+-- -- Repetir para videos, albums, playlists...
+--
+-- -- Permite a los usuarios eliminar SU PROPIO contenido.
+-- CREATE POLICY "Users can delete their own content."
+-- ON tracks FOR DELETE
+-- USING (auth.uid() = user_id);
+-- -- Repetir para videos, albums, playlists...
+
+-- -----------------------------------------------------------------
+-- Tablas de Interacción: follows, reactions, comments
+-- -----------------------------------------------------------------
+-- ALTER TABLE follows ENABLE ROW LEVEL SECURITY;
+-- ALTER TABLE reactions ENABLE ROW LEVEL SECURITY;
+-- ALTER TABLE comments ENABLE ROW LEVEL SECURITY;
+--
+-- -- Todos pueden ver las interacciones.
+-- CREATE POLICY "Interactions are viewable by everyone."
+-- ON follows FOR SELECT USING (true);
+-- -- Repetir para reactions, comments...
+--
+-- -- Los usuarios pueden crear interacciones a su nombre.
+-- CREATE POLICY "Users can create their own interactions."
+-- ON follows FOR INSERT
+-- WITH CHECK (auth.uid() = follower_id);
+--
+-- CREATE POLICY "Users can create their own reactions."
+-- ON reactions FOR INSERT
+-- WITH CHECK (auth.uid() = user_id);
+--
+-- CREATE POLICY "Users can create their own comments."
+-- ON comments FOR INSERT
+-- WITH CHECK (auth.uid() = user_id);
+--
+-- -- Los usuarios pueden eliminar SUS PROPIAS interacciones.
+-- CREATE POLICY "Users can delete their own interactions."
+-- ON follows FOR DELETE
+-- USING (auth.uid() = follower_id);
+-- -- Repetir para reactions, comments...
+
+-- -----------------------------------------------------------------
+-- Tablas de E-commerce: orders, subscriptions, etc.
+-- -----------------------------------------------------------------
+-- ALTER TABLE orders ENABLE ROW LEVEL SECURITY;
+-- ALTER TABLE subscriptions ENABLE ROW LEVEL SECURITY;
+--
+-- -- Un usuario solo puede ver SUS PROPIAS órdenes y suscripciones.
+-- CREATE POLICY "Users can view their own orders."
+-- ON orders FOR SELECT
+-- USING (auth.uid() = user_id);
+--
+-- CREATE POLICY "Users can view their own subscriptions."
+-- ON subscriptions FOR SELECT
+-- USING (auth.uid() = user_id);
+--
+-- -- Un usuario solo puede crear órdenes y suscripciones para sí mismo.
+-- CREATE POLICY "Users can create their own orders."
+-- ON orders FOR INSERT
+-- WITH CHECK (auth.uid() = user_id);
+--
+-- CREATE POLICY "Users can create their own subscriptions."
+-- ON subscriptions FOR INSERT
+-- WITH CHECK (auth.uid() = user_id);

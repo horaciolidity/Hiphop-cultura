@@ -1,0 +1,63 @@
+
+[
+  {
+    "id": "post_1",
+    "author_id": "user_1",
+    "author_name": "MC Demo",
+    "author_handle": "mc_demo",
+    "content": "Trabajando en el nuevo álbum 🔥 Van a ser 12 tracks de puro fuego argentino. ¿Qué esperan escuchar?",
+    "media_urls": [],
+    "tags": ["nuevo album", "hip hop argentino"],
+    "is_public": true,
+    "likes_count": 456,
+    "comments_count": 89,
+    "shares_count": 67,
+    "created_at": "2024-01-15T08:30:00Z",
+    "updated_at": "2024-01-15T08:30:00Z"
+  },
+  {
+    "id": "post_2",
+    "author_id": "user_3",
+    "author_name": "Urban Queen",
+    "author_handle": "urban_queen",
+    "content": "Gracias a todas las mujeres que me escriben contándome cómo mis letras las inspiran. Esto es para ustedes 💜",
+    "media_urls": [],
+    "tags": ["feminismo", "inspiracion"],
+    "is_public": true,
+    "likes_count": 1234,
+    "comments_count": 234,
+    "shares_count": 189,
+    "created_at": "2024-01-14T19:45:00Z",
+    "updated_at": "2024-01-14T19:45:00Z"
+  },
+  {
+    "id": "post_3",
+    "author_id": "user_2",
+    "author_name": "Flow Master",
+    "author_handle": "flow_master",
+    "content": "Nuevo beat cooking 🥵 ¿Quién se anima a rapear sobre esto? Manden sus demos al DM",
+    "media_urls": [],
+    "tags": ["beat", "colaboracion"],
+    "is_public": true,
+    "likes_count": 678,
+    "comments_count": 123,
+    "shares_count": 45,
+    "created_at": "2024-01-14T15:20:00Z",
+    "updated_at": "2024-01-14T15:20:00Z"
+  },
+  {
+    "id": "post_4",
+    "author_id": "user_1",
+    "author_name": "MC Demo",
+    "author_handle": "mc_demo",
+    "content": "Recuerden que mañana es el show en La Trastienda. Nos vemos ahí para romperla juntos 🎤",
+    "media_urls": [],
+    "tags": ["show", "la trastienda", "en vivo"],
+    "is_public": true,
+    "likes_count": 890,
+    "comments_count": 156,
+    "shares_count": 234,
+    "created_at": "2024-01-13T20:15:00Z",
+    "updated_at": "2024-01-13T20:15:00Z"
+  }
+]

@@ -1,0 +1,12 @@
+
+[
+  {
+    "id": "redemption_1",
+    "user_id": "user_1",
+    "reward_id": "reward_1",
+    "points_spent": 500,
+    "status": "completed",
+    "code": "DISCOUNT123",
+    "created_at": "2024-01-15T12:00:00Z"
+  }
+]

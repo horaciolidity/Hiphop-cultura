@@ -1,0 +1,100 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --background: 220 13% 9%;
+  --foreground: 220 9% 95%;
+  --card: 220 13% 11%;
+  --card-foreground: 220 9% 95%;
+  --popover: 220 13% 11%;
+  --popover-foreground: 220 9% 95%;
+  --primary: 280 100% 70%;
+  --primary-foreground: 220 13% 9%;
+  --secondary: 220 13% 15%;
+  --secondary-foreground: 220 9% 95%;
+  --muted: 220 13% 15%;
+  --muted-foreground: 220 9% 65%;
+  --accent: 280 100% 70%;
+  --accent-foreground: 220 13% 9%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 220 9% 95%;
+  --border: 220 13% 20%;
+  --input: 220 13% 20%;
+  --ring: 280 100% 70%;
+  --radius: 0.5rem;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  color: hsl(var(--foreground));
+  min-height: 100vh;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.8);
+}
+
+/* Glassmorphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Neon glow effect */
+.neon-glow {
+  box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+}
+
+/* Waveform animation */
+@keyframes wave {
+  0%, 100% { height: 20%; }
+  50% { height: 100%; }
+}
+
+.waveform-bar {
+  animation: wave 1.5s ease-in-out infinite;
+}
+
+.waveform-bar:nth-child(2) { animation-delay: 0.1s; }
+.waveform-bar:nth-child(3) { animation-delay: 0.2s; }
+.waveform-bar:nth-child(4) { animation-delay: 0.3s; }
+.waveform-bar:nth-child(5) { animation-delay: 0.4s; }
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #a855f7, #ec4899, #f59e0b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Urban patterns */
+.urban-pattern {
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+}

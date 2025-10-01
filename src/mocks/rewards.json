@@ -1,0 +1,25 @@
+
+[
+  {
+    "id": "reward_1",
+    "title": "10% de descuento en merch",
+    "description": "Obtené un 10% de descuento en la compra de cualquier remera o gorra",
+    "cost": 500,
+    "type": "discount",
+    "value": 10,
+    "stock": 100,
+    "is_active": true,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "reward_2",
+    "title": "Acceso a track exclusivo",
+    "description": "Desbloqueá un track inédito que no está disponible públicamente",
+    "cost": 1000,
+    "type": "exclusive_content",
+    "value": "track_exclusive_1",
+    "stock": 50,
+    "is_active": true,
+    "created_at": "2024-01-01T00:00:00Z"
+  }
+]
