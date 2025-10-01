@@ -1,6 +1,6 @@
-// src/pages/Grafiteros.jsx
+// src/pages/grafiteros.jsx
 import React from "react";
-import ArtistSection from "./ArtistSection";
+import ArtistSection from "@/components/ArtistSection";
 
 const grafiteros = [
   {
