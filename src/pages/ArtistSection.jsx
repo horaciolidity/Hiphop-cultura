@@ -16,7 +16,7 @@ export default function ArtistSection({ title, artists }) {
           <CardContent>
             <p className="mb-4">{artist.bio}</p>
 
-            {/* MP3 */}
+            {/* 🎵 MP3 */}
             {artist.mp3?.length > 0 && (
               <div className="mb-4">
                 <h3 className="font-semibold">🎵 MP3</h3>
@@ -26,7 +26,7 @@ export default function ArtistSection({ title, artists }) {
               </div>
             )}
 
-            {/* Videos */}
+            {/* 🎥 Videos */}
             {artist.videos?.length > 0 && (
               <div className="mb-4">
                 <h3 className="font-semibold">🎥 Videos</h3>
@@ -41,7 +41,7 @@ export default function ArtistSection({ title, artists }) {
               </div>
             )}
 
-            {/* Formulario de contratación */}
+            {/* 📩 Formulario de contratación */}
             <div className="mt-4">
               <h3 className="font-semibold mb-2">📩 Contratación</h3>
               <form className="space-y-2">
